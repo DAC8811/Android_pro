@@ -13,7 +13,7 @@ import android.widget.Toast;
 
 import android.view.Menu;
 
-public class FirstActivity extends AppCompatActivity {
+public class FirstActivity extends BaseActivity {
     private static final String TAG = "FirstActivity";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,8 +62,10 @@ public class FirstActivity extends AppCompatActivity {
 //                startActivity(intent);
 
                 //从下一个活动获取数据
-                Intent inetent = new Intent(FirstActivity.this,SecondActivity.class);
-                startActivityForResult(inetent,1);//requestCode用于指定请求码
+//                Intent inetent = new Intent(FirstActivity.this,SecondActivity.class);
+//                startActivityForResult(inetent,1);//requestCode用于指定请求码
+
+                SecondActivity.actionStart(FirstActivity.this,"data1","data2");
             }
         });
     }
