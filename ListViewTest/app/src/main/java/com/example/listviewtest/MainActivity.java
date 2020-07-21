@@ -3,8 +3,11 @@ package com.example.listviewtest;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -28,6 +31,14 @@ public class MainActivity extends AppCompatActivity {
         FruitAdapter fruitAdapter = new FruitAdapter(this,R.layout.fruit_item,fruitList);
         ListView listView = (ListView)findViewById(R.id.list_view);
         listView.setAdapter(fruitAdapter);
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            //设置listView的按键动作
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Fruit fruit = fruitList.get(i);//这里i其实是position
+                Toast.makeText(MainActivity.this,fruit.getName(),Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     private void initFruits(){
